@@ -1,20 +1,9 @@
 #=================================#
-#        Plate Generator          #
+#        Bottom Plate Generator          #
 #=================================#
 
-# By ai03
-# Credits to
-# Amtra5, Mxblue, Bakingpy,
-# Senter, Pwner, Kevinplus, Deskthority Wiki,
-# and any others I may have missed
-
-# Automated production of high-end mechanical keyboard plate data
-# No float rounding issues, pre-filleted corners, ready for production.
-
-# EXTRA SUPPORTED JSON FIELDS:
-# In addition to the KLE fields such as w: for width,
-# _rs: Rotate the stabilizers
-# _rc: Rotate switch cutout
+# By JasonRen
+# Based on AI03's project (https://github.com/ai03-2725/another-keyboard-builder)
 
 #=================================#
 #                                 #
