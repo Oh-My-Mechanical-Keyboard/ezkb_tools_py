@@ -438,6 +438,29 @@ class PlateGenerator(object):
                 self.draw_rotated_arc(x - Decimal('3.81'), y + Decimal('4.45'), anchor_x, anchor_y, Decimal('2.28'), 90, 180, angle)
                 
 
+    # Draw switch circle
+    def draw_switch_circle(self, x, y, angle):
+    
+        line_segments = []
+        corners = []
+        
+        anchor_x = x;
+        anchor_y = y;
+
+        standard_cutout_types = ["mx", "mx-slightly-wider", "alps", "alps-skcp", "omron", "kailh-choc-CPG1350", "kailh-choc-mini-CPG1232"]			
+
+        if (self.cutout_type in standard_cutout_types):
+            self.draw_rotated_circle(x, y, anchor_x, anchor_y, Decimal('4.44'), angle)
+
+            if (self.key_rgb):
+                if (self.key_in_north):
+                    rgb_c_y = y + Decimal('5.08')
+                else:
+                    rgb_c_y = y - Decimal('5.08')
+                rgb_c_x = x
+                self.draw_rotated_circle(rgb_c_x, rgb_c_y, anchor_x, anchor_y, Decimal('2.22'), angle)
+
+
     # Use the functions above to render an entire switch - Cutout, stabs, and all
     def render_switch(self, switch):
         
@@ -472,6 +495,9 @@ class PlateGenerator(object):
             # Draw key keybase
             self.draw_hotswap_base_hole(switch.mm_center[0], switch.mm_center[1], switch.angle + switch.cutout_angle)
         
+        if (self.gen_type == 'kb'):
+            # Draw key keybase
+            self.draw_switch_circle(switch.mm_center[0], switch.mm_center[1], switch.angle + switch.cutout_angle)
         
 
     # Generate switch cutout sizes
@@ -614,7 +640,7 @@ if __name__ == "__main__":
     parser.add_argument("--debug-log", help="Spam output with useless info.", action="store_true", default = False)
     parser.add_argument("--key-north", help="key direction in north", action="store_true", default = False)
     parser.add_argument("--key-rgb", help="Has key rgb", action="store_true", default = False)
-    parser.add_argument("--gen-type", help="plate(p) bottom_plate(bp) underkey_plate(up)", choices = ('p', 'bp', 'up'), default = 'p')
+    parser.add_argument("--gen-type", help="plate(p) bottom_plate(bp) underkey_plate(up) key_base", choices = ('p', 'bp', 'up', 'kb'), default = 'p')
     
     args = parser.parse_args()
     
