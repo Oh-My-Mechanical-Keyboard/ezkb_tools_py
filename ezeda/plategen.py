@@ -30,6 +30,8 @@ from akblib.kle_reader import KLE_Reader
 from akblib.switch import Switch
 from mpmath import *
 from decimal import *
+from akblib.pcb_gen_v2 import PCB_JSON
+from akblib.sch_gen_v2 import SCH_JSON
 
 class PlateGenerator(object):
 
@@ -586,9 +588,27 @@ class PlateGenerator(object):
         if self.dbg_png:
             kle.dbg_plot()
 
-        # Render each one by one. 
-        for switch in all_switches:
-            self.render_switch(switch)
+        if (self.gen_type == 'pcb'):
+            # gen pcb
+            pcbgen = PCB_JSON()
+            pcbgen.add_kle_switchs(all_switches, self.key_in_north, self.key_rgb)
+            if (file == "stdout"):
+                pcbgen.print_pcbjson()
+            else:
+                self.plate.write(file)
+                pcbgen.gen_pcb_json_file(file)
+        if (self.gen_type == 'sch'):
+            # gen sch
+            schgen = SCH_JSON()
+            schgen.add_kle_switchs(all_switches, self.key_in_north, self.key_rgb)
+            if (file == "stdout"):
+                schgen.print_schjson()
+            else:
+                self.plate.write(file)
+                schgen.gen_sch_json_file(file)
+        else:
+            for switch in all_switches:
+                self.render_switch(switch)
 
         # Draw outer bounds - top, bottom, left, right
         # 
@@ -612,11 +632,11 @@ class PlateGenerator(object):
             print("Complete!")
             return 0
             
-
-        if (file == "stdout"):
-            self.plate.write(sys.stdout)
-        else:
-            self.plate.write(file)
+        if (self.gen_type not in  ['pcb', 'sch']):
+            if (file == "stdout"):
+                self.plate.write(sys.stdout)
+            else:
+                self.plate.write(file)
         return 0
             
         
@@ -640,7 +660,7 @@ if __name__ == "__main__":
     parser.add_argument("--debug-log", help="Spam output with useless info.", action="store_true", default = False)
     parser.add_argument("--key-north", help="key direction in north", action="store_true", default = False)
     parser.add_argument("--key-rgb", help="Has key rgb", action="store_true", default = False)
-    parser.add_argument("--gen-type", help="plate(p) bottom_plate(bp) underkey_plate(up) key_base(kb)", choices = ('p', 'bp', 'up', 'kb'), default = 'p')
+    parser.add_argument("--gen-type", help="plate(p) bottom_plate(bp) underkey_plate(up) key_base(kb) pcb sch", choices = ('p', 'bp', 'up', 'kb', 'pcb', 'sch'), default = 'p')
     
     args = parser.parse_args()
     
