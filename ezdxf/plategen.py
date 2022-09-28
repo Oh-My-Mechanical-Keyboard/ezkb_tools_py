@@ -415,28 +415,35 @@ class PlateGenerator(object):
                 self.draw_rotated_line(x-Decimal('8.4'), y-Decimal('0.84'), x-Decimal('8.4'), y-Decimal('3.6'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x+Decimal('7'), y-Decimal('2.73'), x+Decimal('7'), y-Decimal('6.73'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('6.09'), y-Decimal('3.6'), x-Decimal('6.09'), y-Decimal('4.45'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x+Decimal('2.5'), y, x+Decimal('2.5'), y-Decimal('2.73'), anchor_x, anchor_y, angle)
 
-                self.draw_rotated_line(x-Decimal('8.4'), y-Decimal('0.84'), x-Decimal('2.51'), y-Decimal('0.84'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x-Decimal('8.4'), y-Decimal('0.84'), x-Decimal('2.3547'), y-Decimal('0.84'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('8.4'), y-Decimal('3.6'), x-Decimal('6.09'), y-Decimal('3.6'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('3.81'), y-Decimal('6.73'), x+Decimal('7'), y-Decimal('6.73'), anchor_x, anchor_y, angle)
-                self.draw_rotated_line(x-Decimal('0.62'), y-Decimal('2.73'), x+Decimal('7'), y-Decimal('2.73'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x+Decimal('2.5'), y-Decimal('2.73'), x+Decimal('7'), y-Decimal('2.73'), anchor_x, anchor_y, angle)
 
-                self.draw_rotated_arc(x - Decimal('0.62'), y - Decimal('0.84'), anchor_x, anchor_y, Decimal('1.89'), 180, 270, angle)
                 self.draw_rotated_arc(x - Decimal('3.81'), y - Decimal('4.45'), anchor_x, anchor_y, Decimal('2.28'), 180, 270, angle)
+
+                self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 0, 200, angle)
 
             else:
                 self.draw_rotated_line(x-Decimal('8.4'), y+Decimal('0.84'), x-Decimal('8.4'), y+Decimal('3.6'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x+Decimal('7'), y+Decimal('2.73'), x+Decimal('7'), y+Decimal('6.73'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('6.09'), y+Decimal('3.6'), x-Decimal('6.09'), y+Decimal('4.45'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x+Decimal('2.5'), y, x+Decimal('2.5'), y+Decimal('2.73'), anchor_x, anchor_y, angle)
 
-                self.draw_rotated_line(x-Decimal('8.4'), y+Decimal('0.84'), x-Decimal('2.51'), y+Decimal('0.84'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x-Decimal('8.4'), y+Decimal('0.84'), x-Decimal('2.3547'), y+Decimal('0.84'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('8.4'), y+Decimal('3.6'), x-Decimal('6.09'), y+Decimal('3.6'), anchor_x, anchor_y, angle)
                 self.draw_rotated_line(x-Decimal('3.81'), y+Decimal('6.73'), x+Decimal('7'), y+Decimal('6.73'), anchor_x, anchor_y, angle)
-                self.draw_rotated_line(x-Decimal('0.62'), y+Decimal('2.73'), x+Decimal('7'), y+Decimal('2.73'), anchor_x, anchor_y, angle)
+                self.draw_rotated_line(x+Decimal('2.5'), y+Decimal('2.73'), x+Decimal('7'), y+Decimal('2.73'), anchor_x, anchor_y, angle)
 
-                self.draw_rotated_arc(x - Decimal('0.62'), y + Decimal('0.84'), anchor_x, anchor_y, Decimal('1.89'), 90, 180, angle)
+
                 self.draw_rotated_arc(x - Decimal('3.81'), y + Decimal('4.45'), anchor_x, anchor_y, Decimal('2.28'), 90, 180, angle)
                 
+                self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 160, 360, angle)
+
+                # self.draw_rotated_circle(x, y, anchor_x, anchor_y, Decimal('2.5'), angle)
+
 
     # Draw switch circle
     def draw_switch_circle(self, x, y, angle):
