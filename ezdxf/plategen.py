@@ -428,7 +428,14 @@ class PlateGenerator(object):
 
                     self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 0, 200, angle)
                 else:
-
+                    # 竖线
+                    self.draw_rotated_line(x-Decimal('8.5'), y, x-Decimal('8.5'), y-Decimal('6.8'), anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x+Decimal('7'), y, x+Decimal('7'), y-Decimal('6.8'), anchor_x, anchor_y, angle)
+                    # 横线
+                    self.draw_rotated_line(x+Decimal('7'), y, x+Decimal('2.5'), y, anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x-Decimal('8.5'), y, x-Decimal('2.5'), y, anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x-Decimal('8.5'), y-Decimal('6.8'), x+Decimal('7'), y-Decimal('6.8'), anchor_x, anchor_y, angle)
+                    # 半圆
                     self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 0, 180, angle)
 
             else:
@@ -449,8 +456,14 @@ class PlateGenerator(object):
                     
                     self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 160, 360, angle)
                 else:
-                    self.draw_rotated_line(x+Decimal('2.5'), y, x-Decimal('2.5'), y, anchor_x, anchor_y, angle)
-                    
+                    # 竖线
+                    self.draw_rotated_line(x-Decimal('8.5'), y, x-Decimal('8.5'), y+Decimal('6.8'), anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x+Decimal('7'), y, x+Decimal('7'), y+Decimal('6.8'), anchor_x, anchor_y, angle)
+                    # 横线
+                    self.draw_rotated_line(x+Decimal('7'), y, x+Decimal('2.5'), y, anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x-Decimal('8.5'), y, x-Decimal('2.5'), y, anchor_x, anchor_y, angle)
+                    self.draw_rotated_line(x-Decimal('8.5'), y+Decimal('6.8'), x+Decimal('7'), y+Decimal('6.8'), anchor_x, anchor_y, angle)
+                    # 半圆
                     self.draw_rotated_arc(x, y, anchor_x, anchor_y, Decimal('2.5'), 180, 360, angle)
 
 
