@@ -182,8 +182,8 @@ class PCB_JSON:
             if has_rgb:
                 x_rgb_cor = x_rgb_10mil
                 y_rgb_cor = y_rgb_10mil
-        key_pat_str = "\"LIB~{}~{}~~{}~~ggea54457f7354c4b{:02x}~2~954f66c42d5b486694930defadeb9c21~1652623265~0~~yes~~#@$HOLE~{}~{}~8~gge{:02x}~0#@$TEXT~P~{}~{}~0.6~0~1~4~~4.5~SW{:02x}~~~gge6{:02x}~~0~\"".format(x_cor,y_cor,Decimal("360.0")-r,uuid_suffix,x_cor,y_cor,uuid_suffix,x_cor,y_cor,uuid_suffix,uuid_suffix)
-        diode_pat_str = "\"LIB~{}~{}~~{}~~ggea6e3555a40bbd0{:02x}~2~c00a5353f3b94652815b35507393626c~1637389919~0~~yes~~#@$HOLE~{}~{}~4~gge2{:02x}~0#@$TEXT~P~{}~{}~0.6~0~1~4~~4.5~D{:02x}~~~gge8{:02x}~~0~\"".format(x_diode_cor,y_diode_cor,Decimal("540.0")-r,uuid_suffix,x_diode_cor,y_diode_cor,uuid_suffix,x_diode_cor,y_diode_cor,uuid_suffix,uuid_suffix)
+        key_pat_str = "\"LIB~{}~{}~~{}~~ggea54457f7354c4b{:02x}~2~77984bad2be54610842f56fb7da52a0a~1663270135~0~~yes~~#@$HOLE~{}~{}~8~gge{:02x}~0#@$TEXT~P~{}~{}~0.6~0~1~4~~4.5~SW{:02x}~~~gge6{:02x}~~0~\"".format(x_cor,y_cor,Decimal("360.0")-r,uuid_suffix,x_cor,y_cor,uuid_suffix,x_cor,y_cor,uuid_suffix,uuid_suffix)
+        diode_pat_str = "\"LIB~{}~{}~~{}~~ggea6e3555a40bbd0{:02x}~2~584f68dd222f4508855760a940954960~1641701987~0~~yes~~#@$HOLE~{}~{}~4~gge2{:02x}~0#@$TEXT~P~{}~{}~0.6~0~1~4~~4.5~D{:02x}~~~gge8{:02x}~~0~\"".format(x_diode_cor,y_diode_cor,Decimal("540.0")-r,uuid_suffix,x_diode_cor,y_diode_cor,uuid_suffix,x_diode_cor,y_diode_cor,uuid_suffix,uuid_suffix)
         key_pat_str = ",".join([key_pat_str,diode_pat_str])
         if has_rgb:
             rgb_pat_str = "\"LIB~{}~{}~~{}~~ggebd237e6e201399{:02x}~2~3d9e4da5677345b8b94522a242a26e4a~1651917307~0~~yes~~#@$HOLE~{}~{}~6~gge3{:02x}~0#@$TEXT~P~{}~{}~0.6~0~1~4~~4.5~LED{:02x}~~~gge7{:02x}~~0~\"".format(x_rgb_cor,y_rgb_cor,Decimal("360.0")-r,uuid_suffix,x_rgb_cor,y_rgb_cor,uuid_suffix,x_rgb_cor,y_rgb_cor,uuid_suffix,uuid_suffix)
